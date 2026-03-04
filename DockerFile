@@ -36,4 +36,4 @@ RUN php artisan storage:link
 # Give permissions to storage, cache, AND the database directory
 RUN chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 
-CMD ["/bin/sh", "-c", "php artisan migrate --force --seed && /start.sh"]
+CMD ["/start.sh"]
