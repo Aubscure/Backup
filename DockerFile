@@ -25,17 +25,16 @@ WORKDIR /var/www/html
 # Copy the backend application
 COPY . .
 
-# Copy only the compiled frontend assets from Stage 1
-COPY --from=frontend /app/public/build ./public/build
-
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
+# Clean up any cached Windows paths
 RUN rm -rf /var/www/html/bootstrap/cache/*.php
 
-# Give permissions to storage and cache
-# Note: Ensure 'ios:ios' is the correct user/group for your specific container setup
-# Give permissions to storage and cache
-RUN chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache
+# Create a fresh, empty SQLite database for production
+RUN touch /var/www/html/database/database.sqlite
+
+# Give permissions to storage, cache, AND the database directory
+RUN chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 
 CMD ["/start.sh"]
