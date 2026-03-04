@@ -13,7 +13,7 @@ import EnrolleeStatsCards  from '@/Components/Mentor/Enrollees/EnrolleeStatCards
 import EnrolleeFilters     from '@/Components/Mentor/Enrollees/EnrolleeFilters';
 import EnrolleeTable       from '@/Components/Mentor/Enrollees/EnrolleeTable';
 import EnrolleePagination  from '@/Components/Mentor/Enrollees/EnrolleePagination';
-import { STATIC_ENROLLEES, STATIC_STATS } from '@/Components/Mentor/Enrollees/EnrolleeDatanrolleeData';
+import { STATIC_ENROLLEES, STATIC_STATS } from '@/Components/Mentor/Enrollees/EnrolleeData';
 
 // ─── Animation ───────────────────────────────────────────────────────────────
 const fadeInUp = keyframes`
