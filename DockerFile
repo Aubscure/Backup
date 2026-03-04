@@ -20,10 +20,16 @@ ENV RUN_SCRIPTS 1
 ENV REAL_IP_HEADER 1
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
+# CRITICAL FIX 1: Force Nginx to route all traffic to Laravel (Fixes 404 errors)
+ENV PHP_CATCHALL 1
+
 WORKDIR /var/www/html
 
 # Copy the backend application
 COPY . .
+
+# CRITICAL FIX 2: Copy only the compiled frontend assets from Stage 1
+COPY --from=frontend /app/public/build ./public/build
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
@@ -31,9 +37,10 @@ RUN composer install --no-dev --optimize-autoloader
 # Clean up any cached Windows paths
 RUN rm -rf /var/www/html/bootstrap/cache/*.php
 
+# Create the symbolic link for public file uploads
 RUN php artisan storage:link
 
-# Give permissions to storage, cache, AND the database directory
+# Give permissions to storage, cache, and the public folder
 RUN chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 
 CMD ["/start.sh"]
