@@ -41,8 +41,9 @@ RUN rm -rf /var/www/html/bootstrap/cache/*.php
 RUN php artisan storage:link
 
 # Increase Nginx FastCGI buffer sizes to handle Laravel session headers
-RUN echo "fastcgi_buffers 16 16k;" > /etc/nginx/conf.d/custom-buffers.conf && \
-    echo "fastcgi_buffer_size 32k;" >> /etc/nginx/conf.d/custom-buffers.conf
+# Increase Nginx FastCGI buffer sizes to handle Laravel session headers
+RUN echo "fastcgi_buffers 16 16k;" >> /etc/nginx/fastcgi_params && \
+    echo "fastcgi_buffer_size 32k;" >> /etc/nginx/fastcgi_params
 
 # Give permissions to storage, cache, and the public folder
 RUN chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
