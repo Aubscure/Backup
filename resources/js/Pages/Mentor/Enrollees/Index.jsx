@@ -13,7 +13,7 @@ import EnrolleeStatsCards  from '@/Components/Mentor/Enrollees/EnrolleeStatCards
 import EnrolleeFilters     from '@/Components/Mentor/Enrollees/EnrolleeFilters';
 import EnrolleeTable       from '@/Components/Mentor/Enrollees/EnrolleeTable';
 import EnrolleePagination  from '@/Components/Mentor/Enrollees/EnrolleePagination';
-import { STATIC_ENROLLEES, STATIC_STATS } from '@/Components/Mentor/Enrollees/enrolleeData';
+import { STATIC_ENROLLEES, STATIC_STATS } from '@/Components/Mentor/Enrollees/EnrolleeDatanrolleeData';
 
 // ─── Animation ───────────────────────────────────────────────────────────────
 const fadeInUp = keyframes`
@@ -167,7 +167,7 @@ export default function EnrolleesIndex({
                                 overflow: 'hidden',
                                 animation: `${fadeInUp} 0.5s ease-out both`,
                                 animationDelay: '0.1s',
-                                
+
                             }}
                         >
                             {/* Filters */}
@@ -186,7 +186,7 @@ export default function EnrolleesIndex({
                             <Box sx={{ px: { xs: 1, sm: 2 },}}>
                                 <EnrolleeTable
                                 enrollees={displayedRows}
-                                onRowClick={handleRowClick} 
+                                onRowClick={handleRowClick}
                                 />
                             </Box>
 
