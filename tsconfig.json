@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "strict": true,
+    "jsx": "react", /* Or "react-jsx" depending on your Vite setup */
+    "allowJs": true, /* Allows JavaScript files to be compiled */
+    "checkJs": false, /* Set to true if you want TS to report errors in .js files */
+    "noEmit": true, /* Vite handles the build, not tsc */
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["resources/js/*"]
+    }
+  },
+  "include": [
+    "resources/js/**/*.ts", 
+    "resources/js/**/*.tsx", 
+    "resources/js/**/*.d.ts", 
+    "resources/js/**/*.js", /* Include js */
+    "resources/js/**/*.jsx", /* Include jsx */
+  ]
+}
