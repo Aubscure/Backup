@@ -33,6 +33,7 @@ RUN composer install --no-dev --optimize-autoloader
 
 # Give permissions to storage and cache
 # Note: Ensure 'ios:ios' is the correct user/group for your specific container setup
-RUN chown -R ios:ios /var/www/html/storage /var/www/html/bootstrap/cache
+# Give permissions to storage and cache
+RUN chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache
 
 CMD ["/start.sh"]
