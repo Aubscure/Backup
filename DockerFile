@@ -12,8 +12,9 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 
 # Install Node and build Vite assets
 RUN apk add --no-cache nodejs npm && \
-    npm install && \
-    npm run build
+    npm install --force && \
+    NODE_OPTIONS="--max-old-space-size=4096" npm run build
+
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
