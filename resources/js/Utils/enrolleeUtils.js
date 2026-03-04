@@ -1,4 +1,4 @@
-import { STATIC_ENROLLEES } from '@/Components/Mentor/Enrollees/enrolleeData';
+import { STATIC_ENROLLEES } from '@/Components/Mentor/Enrollees/EnrolleeData';
 
 export function resolveEnrollee(userdata, id) {
     if (userdata) return userdata;
