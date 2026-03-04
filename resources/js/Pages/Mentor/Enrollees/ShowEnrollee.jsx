@@ -6,10 +6,10 @@ import Stack from "@mui/material/Stack";
 import { keyframes } from "@mui/material";
 import MentorLayout from "@/Layouts/MentorLayout";
 
-import EmployeeDetails       from "./Components/EmployeeDetails";
-import EmpCertificationLists from "./Components/EmpCertificationLists";
-import EmpTopCoursesList     from "./Components/EmpTopCoursesList";
-import PerformanceDetails    from "./Components/PerformanceDetails";
+import EmployeeDetails       from "./Components_temp/EmployeeDetails";
+import EmpCertificationLists from "./Components_temp/EmpCertificationLists";
+import EmpTopCoursesList     from "./Components_temp/EmpTopCoursesList";
+import PerformanceDetails    from "./Components_temp/PerformanceDetails";
 
 import { resolveEnrollee, getFullName } from "@/Utils/enrolleeUtils";
 
