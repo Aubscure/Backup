@@ -6,7 +6,7 @@ import {
 import CloudUploadRoundedIcon  from '@mui/icons-material/CloudUploadRounded';
 import InfoOutlinedIcon        from '@mui/icons-material/InfoOutlined';
 import ImageRoundedIcon        from '@mui/icons-material/ImageRounded';
-import { extractVideoThumbnail, blobToPreviewUrl } from '@/utils/videoThumbnail';
+import { extractVideoThumbnail, blobToPreviewUrl } from '@/Utils/videoThumbnail';
 
 export default function MentorAddVideoDialog({
     open,
