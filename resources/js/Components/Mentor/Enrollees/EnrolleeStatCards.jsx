@@ -5,7 +5,7 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { keyframes } from '@mui/material';
-import { STATIC_STATS } from './enrolleeData';
+import { STATIC_STATS } from './EnrolleeData';
 
 const fadeInUp = keyframes`
   from { opacity: 0; transform: translateY(16px); }

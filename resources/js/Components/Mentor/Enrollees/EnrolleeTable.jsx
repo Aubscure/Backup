@@ -4,7 +4,7 @@ import {
     Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
     Paper, Avatar,
 } from '@mui/material';
-import { STATUS_META, SOURCE_META } from './enrolleeData';
+import { STATUS_META, SOURCE_META } from './EnrolleeData';
 import SchoolIcon from '@mui/icons-material/School';
 import BusinessIcon from '@mui/icons-material/Business';
 import StarIcon from '@mui/icons-material/Star';
