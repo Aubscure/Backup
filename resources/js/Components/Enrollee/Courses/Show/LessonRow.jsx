@@ -12,7 +12,7 @@ import MentorLessonVideoPlayer   from '@/Components/Mentor/Courses/Show/MentorLe
 // View-only fork of the mentor PDF viewer (no download button, blocks Ctrl+S/P)
 import EnrolleeMaterialPdfViewer from '@/Components/Enrollee/Courses/Show/EnrolleeMaterialPdfViewer';
 
-import { EASE, formatDuration } from './utils';
+import { EASE, formatDuration } from './Utils';
 
 const LessonRow = memo(({ lesson, moduleIdx, lessonIdx, hasAccess }) => {
     const [open,      setOpen]      = useState(false);

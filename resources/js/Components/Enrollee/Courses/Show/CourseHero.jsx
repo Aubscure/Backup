@@ -13,7 +13,7 @@ import WorkspacePremiumRoundedIcon from '@mui/icons-material/WorkspacePremiumRou
 
 import InteractiveStarRating from './InteractiveStarRating';
 import StatTile              from './StatTile';
-import { EASE, EASE_SPRING, formatCurrency } from './utils';
+import { EASE, EASE_SPRING, formatCurrency } from './Utils';
 
 // ── Local PlanCard Component ──────────────────────────────────────────────────
 const PlanCard = memo(({ plan, isFree }) => {
@@ -57,15 +57,15 @@ const PlanCard = memo(({ plan, isFree }) => {
 });
 
 // ── Exported CourseHero Component ─────────────────────────────────────────────
-export default function CourseHero({ 
-    course, category, hasAccess, isFree, mentorName, mentorInitial, 
-    userRating, rating, reviewCount, durationLabel, totalModules, 
-    totalLessons, totalFiles, totalVideos, totalAssessments, enrolleeCount, 
-    hasCertificate, plans, CtaButton 
+export default function CourseHero({
+    course, category, hasAccess, isFree, mentorName, mentorInitial,
+    userRating, rating, reviewCount, durationLabel, totalModules,
+    totalLessons, totalFiles, totalVideos, totalAssessments, enrolleeCount,
+    hasCertificate, plans, CtaButton
 }) {
     return (
         <Paper elevation={0} sx={{ border: '1px solid', borderColor: 'grey.100', borderRadius: 4, overflow: 'hidden', mb: 4, boxShadow: '0 20px 60px -12px rgba(0,0,0,0.08)' }}>
-            
+
             {/* Thumbnail & Badges */}
             <Box sx={{ position: 'relative', overflow: 'hidden' }}>
                 {course.course_thumbnail_url ? (
@@ -79,37 +79,37 @@ export default function CourseHero({
                         <SchoolRoundedIcon sx={{ fontSize: 72, color: 'rgba(255,255,255,0.3)' }} />
                     </Box>
                 )}
-                
+
                 {category && (
-                    <Chip 
+                    <Chip
                         label={category.toUpperCase()} size="small"
-                        sx={{ 
+                        sx={{
                             position: 'absolute', top: { xs: 12, sm: 18 }, left: { xs: 12, sm: 18 }, zIndex: 2,
                             bgcolor: 'rgba(255, 255, 255, 0.58)', backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(44px)',
                             border: '2px solid rgba(255, 255, 255, 0)', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-                            color: '#111827', fontWeight: 700, fontSize: { xs: '0.6rem', sm: '0.65rem' }, 
-                            letterSpacing: '0.5px', height: 24 
-                        }} 
+                            color: '#111827', fontWeight: 700, fontSize: { xs: '0.6rem', sm: '0.65rem' },
+                            letterSpacing: '0.5px', height: 24
+                        }}
                     />
                 )}
-                
+
                 {hasAccess && (
-                    <Chip 
-                        icon={<CheckCircleIcon sx={{ fontSize: '14px !important', color: '#156534 !important' }} />} 
+                    <Chip
+                        icon={<CheckCircleIcon sx={{ fontSize: '14px !important', color: '#156534 !important' }} />}
                         label="ENROLLED" size="small"
-                        sx={{ 
+                        sx={{
                             position: 'absolute', top: { xs: 12, sm: 18 }, right: { xs: 12, sm: 18 }, zIndex: 2,
                             bgcolor: 'rgba(255, 255, 255, 0.58)', backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(44px)',
                             border: '2px solid rgba(255, 255, 255, 0)', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-                            color: '#111827', fontWeight: 700, fontSize: { xs: '0.6rem', sm: '0.65rem' }, 
-                            letterSpacing: '0.5px', height: 24 
-                        }} 
+                            color: '#111827', fontWeight: 700, fontSize: { xs: '0.6rem', sm: '0.65rem' },
+                            letterSpacing: '0.5px', height: 24
+                        }}
                     />
                 )}
             </Box>
 
             <Box sx={{ p: { xs: 2, sm: 2.5, md: 3, lg: 3.5 } }}>
-                
+
                 {/* Title & Instructor */}
                 <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', md: 'flex-start' }, gap: 2, mb: 2.5 }}>
                     <Box sx={{ flex: 1, pr: { md: 2 } }}>
@@ -135,32 +135,32 @@ export default function CourseHero({
                 {/* Stat Tiles */}
                 <Stack direction="row" spacing={{ xs: 0.75, sm: 1 }} flexWrap="nowrap" sx={{ overflowX: 'auto', py: 0.5, pb: 1 }}>
                     {durationLabel !== '-' && (
-                        <Tooltip title={`This course is good for ${durationLabel}`} placement="top"> 
+                        <Tooltip title={`This course is good for ${durationLabel}`} placement="top">
                             <StatTile icon={<AccessTimeRoundedIcon sx={{ fontSize: { xs: 18, sm: 20 } }} />} label="Duration" value={durationLabel} />
                         </Tooltip>
                     )}
                     {totalLessons > 0 && (
-                        <StatTile 
-                            icon={<SchoolRoundedIcon sx={{ fontSize: { xs: 18, sm: 20 } }} />}  
-                            label="Curriculum"   
+                        <StatTile
+                            icon={<SchoolRoundedIcon sx={{ fontSize: { xs: 18, sm: 20 } }} />}
+                            label="Curriculum"
                             value={
                                 <>
                                     <span style={{ fontWeight: 800 }}>{totalModules}</span> <span style={{ fontWeight: 400 }}>Modules</span><br />
                                     <span style={{ fontWeight: 800 }}>{totalLessons}</span> <span style={{ fontWeight: 400 }}>Lessons</span>
                                 </>
-                            } 
+                            }
                         />
                     )}
                     {(totalFiles > 0 || totalVideos > 0) && (
-                        <StatTile 
-                            icon={<FolderOpenRoundedIcon sx={{ fontSize: { xs: 18, sm: 20 } }} />}  
-                            label="Resources"        
+                        <StatTile
+                            icon={<FolderOpenRoundedIcon sx={{ fontSize: { xs: 18, sm: 20 } }} />}
+                            label="Resources"
                             value={
                                 <>
                                     <span style={{ fontWeight: 800 }}>{totalFiles}</span> <span style={{ fontWeight: 400 }}>Files</span><br />
                                     <span style={{ fontWeight: 800 }}>{totalVideos}</span> <span style={{ fontWeight: 400 }}>Videos</span>
                                 </>
-                            } 
+                            }
                         />
                     )}
                     {totalAssessments > 0  && <StatTile icon={<QuizRoundedIcon       sx={{ fontSize: { xs: 18, sm: 20 }, color: '#307d31 !important' }} />} label="Quizzes"      value={totalAssessments} />}

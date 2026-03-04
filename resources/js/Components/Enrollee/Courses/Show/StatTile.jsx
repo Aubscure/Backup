@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { Box, Typography } from '@mui/material';
-import { EASE, EASE_SPRING } from './utils';
+import { EASE, EASE_SPRING } from './Utils';
 
 const StatTile = forwardRef(({ icon, label, value, ...props }, ref) => {
     return (

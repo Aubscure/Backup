@@ -5,7 +5,7 @@ import GroupRoundedIcon  from '@mui/icons-material/GroupRounded';
 import StarRoundedIcon   from '@mui/icons-material/StarRounded';
 
 import StatTile       from '@/Components/Enrollee/Courses/Show/StatTile';
-import { stripHTML }  from '@/Components/Enrollee/Courses/Show/utils';
+import { stripHTML }  from '@/Components/Enrollee/Courses/Show/Utils';
 
 export default function InstructorTab({ course, mentorName, mentorInitial, totalCourses, enrolleeCount, rating }) {
     return (

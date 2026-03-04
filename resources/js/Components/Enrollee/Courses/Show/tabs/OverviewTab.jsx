@@ -5,7 +5,7 @@ import WorkspacePremiumRoundedIcon from '@mui/icons-material/WorkspacePremiumRou
 import LockIcon                    from '@mui/icons-material/Lock';
 
 import CertPreview from '@/Components/Enrollee/Courses/Show/CertPreview';
-import { EASE }    from '@/Components/Enrollee/Courses/Show/utils';
+import { EASE }    from '@/Components/Enrollee/Courses/Show/Utils';
 
 export default function OverviewTab({ course, hasCertificate, enrollment, hasAccess, mentorName, authUser }) {
     const isCompleted = !!(enrollment?.completed_at || enrollment?.status === 'completed');

@@ -26,7 +26,7 @@ import OverviewTab   from '@/Components/Enrollee/Courses/Show/tabs/OverviewTab';
 import CurriculumTab from '@/Components/Enrollee/Courses/Show/tabs/CurriculumTab';
 import InstructorTab from '@/Components/Enrollee/Courses/Show/tabs/MentorTab';
 import ReviewsTab    from '@/Components/Enrollee/Courses/Show/tabs/ReviewTab';
-import { SIDEBAR_WIDTH, EASE, formatCurrency } from '@/Components/Enrollee/Courses/Show/utils';
+import { SIDEBAR_WIDTH, EASE, formatCurrency } from '@/Components/Enrollee/Courses/Show/Utils';
 
 export default function EnrolleeCourseShow({ course, hasAccess, isFree, coursePrice, enrollment }) {
     const { props } = usePage();
@@ -144,13 +144,13 @@ export default function EnrolleeCourseShow({ course, hasAccess, isFree, coursePr
                 </Button>
 
                 {/* Extracted Course Hero Component (Includes Pricing Plans) */}
-                <CourseHero 
-                    course={course} category={category} hasAccess={hasAccess} isFree={isFree} 
-                    mentorName={mentorName} mentorInitial={mentorInitial} userRating={userRating} 
-                    rating={rating} reviewCount={reviewCount} durationLabel={durationLabel} 
-                    totalModules={totalModules} totalLessons={totalLessons} totalFiles={totalFiles} 
-                    totalAssessments={totalAssessments} enrolleeCount={enrolleeCount} 
-                    hasCertificate={hasCertificate} plans={plans} CtaButton={CtaButton} totalVideos={totalVideos} 
+                <CourseHero
+                    course={course} category={category} hasAccess={hasAccess} isFree={isFree}
+                    mentorName={mentorName} mentorInitial={mentorInitial} userRating={userRating}
+                    rating={rating} reviewCount={reviewCount} durationLabel={durationLabel}
+                    totalModules={totalModules} totalLessons={totalLessons} totalFiles={totalFiles}
+                    totalAssessments={totalAssessments} enrolleeCount={enrolleeCount}
+                    hasCertificate={hasCertificate} plans={plans} CtaButton={CtaButton} totalVideos={totalVideos}
                 />
 
                 {/* Tabs Layout */}

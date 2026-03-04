@@ -9,7 +9,7 @@ import QuizRoundedIcon         from '@mui/icons-material/QuizRounded';
 
 import LessonRow   from '@/Components/Enrollee/Courses/Show/LessonRow';
 import ModuleBadge from '@/Components/Enrollee/Courses/Show/ModuleBadge';
-import { EASE, formatModuleDuration } from '@/Components/Enrollee/Courses/Show/utils';
+import { EASE, formatModuleDuration } from '@/Components/Enrollee/Courses/Show/Utils';
 
 export default function CurriculumTab({ syllabuses, hasAccess }) {
     return (

@@ -6,7 +6,7 @@ import CheckCircleIcon       from '@mui/icons-material/CheckCircle';
 import RateReviewRoundedIcon from '@mui/icons-material/RateReviewRounded';
 
 import InteractiveStarRating from '@/Components/Enrollee/Courses/Show/InteractiveStarRating';
-import { EASE, EASE_SPRING } from '@/Components/Enrollee/Courses/Show/utils';
+import { EASE, EASE_SPRING } from '@/Components/Enrollee/Courses/Show/Utils';
 
 export default function ReviewsTab({
     rating, reviewCount, hasAccess,
