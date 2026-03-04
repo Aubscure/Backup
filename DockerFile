@@ -1,7 +1,17 @@
-# Use an image that has PHP and Nginx already set up
-FROM richarvey/nginx-php-fpm:3.1.6
+# Stage 1: Build Frontend Assets (Vite)
+FROM node:20-alpine AS frontend
+WORKDIR /app
 
+# Copy package files first to leverage Docker layer caching
+COPY package.json package-lock.json* ./
+RUN npm install
+
+# Copy remaining source code and build
 COPY . .
+RUN npm run build
+
+# Stage 2: Production Server
+FROM richarvey/nginx-php-fpm:3.1.6
 
 # Image configuration for Render
 ENV WEBROOT /var/www/html/public
@@ -10,16 +20,19 @@ ENV RUN_SCRIPTS 1
 ENV REAL_IP_HEADER 1
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-# Install Node and build Vite assets
-RUN apk add --no-cache nodejs npm && \
-    npm install --force && \
-    NODE_OPTIONS="--max-old-space-size=4096" npm run build
+WORKDIR /var/www/html
 
+# Copy the backend application
+COPY . .
+
+# Copy only the compiled frontend assets from Stage 1
+COPY --from=frontend /app/public/build ./public/build
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
 # Give permissions to storage and cache
+# Note: Ensure 'ios:ios' is the correct user/group for your specific container setup
 RUN chown -R ios:ios /var/www/html/storage /var/www/html/bootstrap/cache
 
 CMD ["/start.sh"]
