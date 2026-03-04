@@ -1,4 +1,6 @@
 /node_modules
 /vendor
-.env
-.git
+/.env
+/bootstrap/cache/*.php
+/storage/framework/cache/data/*
+/database/database.sqlite

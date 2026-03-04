@@ -31,6 +31,8 @@ COPY --from=frontend /app/public/build ./public/build
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
+RUN rm -rf /var/www/html/bootstrap/cache/*.php
+
 # Give permissions to storage and cache
 # Note: Ensure 'ios:ios' is the correct user/group for your specific container setup
 # Give permissions to storage and cache
