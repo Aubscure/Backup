@@ -31,7 +31,9 @@ RUN composer install --no-dev --optimize-autoloader
 # Clean up any cached Windows paths
 RUN rm -rf /var/www/html/bootstrap/cache/*.php
 
-# Give permissions to storage, cache, AND the database directory
-RUN chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
+RUN php artisan storage:link
 
-CMD ["/start.sh"]
+# Give permissions to storage, cache, AND the database directory
+RUN chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
+
+CMD ["/bin/sh", "-c", "php artisan migrate --force --seed && /start.sh"]
