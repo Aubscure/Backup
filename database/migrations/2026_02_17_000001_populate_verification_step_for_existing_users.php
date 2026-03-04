@@ -8,12 +8,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+public function up(): void
     {
         // Set verification_step for existing users based on their progress
         DB::statement('
             UPDATE users SET verification_step = CASE
-                WHEN is_verified = 1 THEN NULL
+                WHEN is_verified = true THEN NULL
                 WHEN EXISTS (SELECT 1 FROM verification_documents WHERE user_id = users.id AND status IN ("pending", "verified"))
                     THEN 3
                 WHEN EXISTS (SELECT 1 FROM credentials WHERE user_id = users.id)
@@ -22,7 +22,7 @@ return new class extends Migration
                     THEN 2
                 ELSE 1
             END
-            WHERE verification_step IS NULL AND is_verified = 0
+            WHERE verification_step IS NULL AND is_verified = false
         ');
     }
 

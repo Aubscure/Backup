@@ -31,9 +31,6 @@ RUN composer install --no-dev --optimize-autoloader
 # Clean up any cached Windows paths
 RUN rm -rf /var/www/html/bootstrap/cache/*.php
 
-# Create a fresh, empty SQLite database for production
-RUN touch /var/www/html/database/database.sqlite
-
 # Give permissions to storage, cache, AND the database directory
 RUN chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 
