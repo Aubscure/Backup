@@ -9,7 +9,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
-import { STATUS_META } from "@/Components/Mentor/Enrollees/enrolleeData";
+import { STATUS_META } from "@/Components/Mentor/Enrollees/EnrolleeData";
 
 // ── Syllabus row — animated progress, uniform colors ─────────────────────────
 function SyllabusRow({ s, index, parentExpanded }) {
