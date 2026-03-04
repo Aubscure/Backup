@@ -1,0 +1,24 @@
+# Use an image that has PHP and Nginx already set up
+FROM richarvey/nginx-php-fpm:3.1.6
+
+COPY . .
+
+# Image configuration for Render
+ENV WEBROOT /var/www/html/public
+ENV PHP_ERRORS_STDERR 1
+ENV RUN_SCRIPTS 1
+ENV REAL_IP_HEADER 1
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
+# Install Node and build Vite assets
+RUN apk add --no-cache nodejs npm && \
+    npm install && \
+    npm run build
+
+# Install PHP dependencies
+RUN composer install --no-dev --optimize-autoloader
+
+# Give permissions to storage and cache
+RUN chown -R ios:ios /var/www/html/storage /var/www/html/bootstrap/cache
+
+CMD ["/start.sh"]
